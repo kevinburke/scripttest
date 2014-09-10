@@ -28,7 +28,7 @@ def string(string):
         if isinstance(string, str):
             return string
         if string is None:
-            return string
+            return ''
         return str(string, "utf-8")
     else:
         if isinstance(string, unicode):  # noqa
@@ -36,7 +36,9 @@ def string(string):
         if isinstance(string, basestring):
             return string.decode('utf-8')
         # not a string type
-        return string
+        if string is None:
+            return ''
+        return str(string)
 
 
 # From pathutils by Michael Foord:
