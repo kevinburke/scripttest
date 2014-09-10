@@ -254,7 +254,7 @@ class TestFileEnvironment(object):
                                     env=clean_environ(self.environ))
             import time
             import signal
-            time.sleep(3)
+            time.sleep(7)
             proc.send_signal(signal.SIGINT)
         else:
             proc = subprocess.Popen(all, stdin=subprocess.PIPE,
