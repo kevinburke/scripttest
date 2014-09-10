@@ -31,7 +31,10 @@ def string(string):
     else:
         if isinstance(string, unicode):  # noqa
             return string
-        return string.decode('utf-8')
+        if isinstance(string, basestring):
+            return string.decode('utf-8')
+        # not a string type
+        return str(string)
 
 
 # From pathutils by Michael Foord:
