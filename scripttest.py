@@ -248,6 +248,10 @@ class TestFileEnvironment(object):
                                     # see http://bugs.python.org/issue8557
                                     shell=(sys.platform == 'win32'),
                                     env=clean_environ(self.environ))
+            import time
+            import signal
+            time.sleep(4)
+            proc.send_signal(signal.SIGINT)
         else:
             proc = subprocess.Popen(all, stdin=subprocess.PIPE,
                                     stderr=subprocess.PIPE,
