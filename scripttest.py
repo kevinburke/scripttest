@@ -27,6 +27,8 @@ def string(string):
     if sys.version_info >= (3,):
         if isinstance(string, str):
             return string
+        if string is None:
+            return "None"
         return str(string, "utf-8")
     else:
         if isinstance(string, unicode):  # noqa
