@@ -278,12 +278,12 @@ class TestFileEnvironment(object):
             returncode=proc.returncode,
             files_before=files_before,
             files_after=files_after)
-        if not expect_error:
-            result.assert_no_error(quiet)
         if not expect_stderr:
             result.assert_no_stderr(quiet)
         if not expect_temp:
             result.assert_no_temp(quiet)
+        if not expect_error:
+            result.assert_no_error(quiet)
         return result
 
     def _find_files(self):
